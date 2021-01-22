@@ -1,11 +1,15 @@
 import React from "react";
 import { View, Text, Dimensions, StyleSheet } from "react-native";
+import { call } from "react-native-reanimated";
 import { userListProps } from "../services/interface";
+import { Ionicons as Icon, MaterialIcons } from "@expo/vector-icons";
+import { PRIMARY, SECONDARY_LIGHT } from "../constants/colors";
 
 const { width: wWidth, height: wHeight } = Dimensions.get("window");
 
 interface ProfileCardsProps {
   item: userListProps;
+  call?: boolean;
 }
 
 const styles = StyleSheet.create({
@@ -32,7 +36,7 @@ const styles = StyleSheet.create({
     color: "grey",
   },
 });
-const ProfileCards = ({ item }: ProfileCardsProps) => {
+const ProfileCards = ({ item, call }: ProfileCardsProps) => {
   return (
     <View style={styles.cardContainer}>
       <View style={styles.avatarContainer}>
@@ -51,10 +55,23 @@ const ProfileCards = ({ item }: ProfileCardsProps) => {
         >
           <View style={{ paddingLeft: 10 }}>
             <Text>{item.name}</Text>
-            <Text style={styles.silentText}>{item.lastMessage}</Text>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              {call ? (
+                <MaterialIcons
+                  name="call-made"
+                  size={15}
+                  color={SECONDARY_LIGHT}
+                />
+              ) : null}
+              <Text style={styles.silentText}>{item.lastMessage}</Text>
+            </View>
           </View>
           <View>
-            <Text style={styles.silentText}>{item.lastSeen}</Text>
+            {call ? (
+              <Icon name="md-call" size={26} color={PRIMARY} />
+            ) : (
+              <Text style={styles.silentText}>{item.lastSeen}</Text>
+            )}
           </View>
         </View>
       </View>
