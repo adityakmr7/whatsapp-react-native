@@ -1,10 +1,11 @@
-import React from "react";
+import React, { ReactComponentElement, ReactNode } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
 import { SECONDARY_LIGHT } from "../constants/colors";
 
 interface FloatingButtonProps {
   iconName: string;
+  iconSize: number;
 }
 
 const styles = StyleSheet.create({
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const FloatingButton = ({ iconName }: FloatingButtonProps) => {
+const FloatingButton = ({ iconName, iconSize }: FloatingButtonProps) => {
   return (
     <View>
       <View style={styles.floatingContainer}>
