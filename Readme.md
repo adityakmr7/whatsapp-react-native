@@ -1,5 +1,5 @@
 ### Whats App Clone With React Native
 
-    [Github](https://github.com/adityakmr7/whatsapp-react-native)
+[Github](https://github.com/adityakmr7/whatsapp-react-native)
 
-    [YouTube](https://www.youtube.com/watch?v=RcypsO8MBQ0)
+[YouTube](https://www.youtube.com/watch?v=RcypsO8MBQ0)
